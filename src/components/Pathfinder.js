@@ -13,6 +13,7 @@ const END_NODE_COL = cols - 1;
 
 function Pathfinder() {
   const [grid, setGrid] = useState([]);
+  const [path, setPath] = useState([]);
 
   useEffect(() => {
     initializeGrid();
@@ -29,7 +30,8 @@ function Pathfinder() {
     addNeighbours(Grid);
     const startNode = Grid[START_NODE_ROW][START_NODE_COL];
     const endNode = Grid[END_NODE_ROW][END_NODE_COL];
-    Astar(startNode, endNode);
+    let Path = Astar(startNode, endNode);
+    setPath(Path);
   };
   const createSpot = (Grid) => {
     for (let i = 0; i < rows; i++) {

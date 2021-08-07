@@ -13,7 +13,14 @@ function Astar(startNode, endNode) {
     }
     let current = openSet[leastIndex];
     if (current === endNode) {
-      console.log("Path Found!");
+      let temp = current;
+      path.push(temp);
+      while (temp.previous) {
+        path.push(temp.previous);
+        temp = temp.previous;
+      }
+      //console.log("Path Found!", path);
+      return path;
     }
     openSet = openSet.filter((e) => e !== current);
     closedSet.push(current);
@@ -42,6 +49,7 @@ function Astar(startNode, endNode) {
       }
     }
   }
+  return { path, error: "No Path found!" };
 }
 
 function heuristic(a, b) {
