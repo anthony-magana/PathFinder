@@ -2,6 +2,7 @@ function Astar(startNode, endNode) {
   let openSet = [];
   let closedSet = [];
   let path = [];
+  let visitedNodes = [];
 
   openSet.push(startNode);
   while (openSet.length > 0) {
@@ -12,6 +13,7 @@ function Astar(startNode, endNode) {
       }
     }
     let current = openSet[leastIndex];
+    visitedNodes.push(current);
     if (current === endNode) {
       let temp = current;
       path.push(temp);
@@ -20,7 +22,7 @@ function Astar(startNode, endNode) {
         temp = temp.previous;
       }
       //console.log("Path Found!", path);
-      return path;
+      return { path, visitedNodes };
     }
     openSet = openSet.filter((e) => e !== current);
     closedSet.push(current);
@@ -49,7 +51,7 @@ function Astar(startNode, endNode) {
       }
     }
   }
-  return { path, error: "No Path found!" };
+  return { path, visitedNodes, error: "No Path found!" };
 }
 
 function heuristic(a, b) {

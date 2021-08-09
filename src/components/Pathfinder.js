@@ -14,6 +14,7 @@ const END_NODE_COL = cols - 1;
 function Pathfinder() {
   const [grid, setGrid] = useState([]);
   const [path, setPath] = useState([]);
+  const [visitedNodes, setVisitedNodes] = useState([]);
 
   useEffect(() => {
     initializeGrid();
@@ -31,7 +32,8 @@ function Pathfinder() {
     const startNode = Grid[START_NODE_ROW][START_NODE_COL];
     const endNode = Grid[END_NODE_ROW][END_NODE_COL];
     let Path = Astar(startNode, endNode);
-    setPath(Path);
+    setPath(Path.path);
+    setVisitedNodes(Path.visitedNodes);
   };
   const createSpot = (Grid) => {
     for (let i = 0; i < rows; i++) {
@@ -95,9 +97,35 @@ function Pathfinder() {
     </div>
   );
 
+  const visualizeShortestPath = (shortestPathNodes) => {
+    for (let i = 0; i < shortestPathNodes.length; i++) {
+      setTimeout(() => {
+        const node = shortestPathNodes[i];
+        document.getElementById(`node-${node.x}-${node.y}`).className =
+          "node node-shortest-path";
+      }, 10 * i);
+    }
+  };
+  const visualizePath = () => {
+    for (let i = 0; i <= visitedNodes.length; i++) {
+      if (i === visitedNodes.length) {
+        setTimeout(() => {
+          visualizeShortestPath(path);
+        }, 20 * i);
+      } else {
+        setTimeout(() => {
+          const node = visitedNodes[i];
+          document.getElementById(`node-${node.x}-${node.y}`).className =
+            "node node-visited";
+        }, 20 * i);
+      }
+    }
+  };
+
   return (
     <div className="wrapper">
       <h1>Pathfinder</h1>
+      <button onClick={visualizePath}>Visualize Path</button>
       {gridwithNode}
     </div>
   );
