@@ -32,6 +32,8 @@ function Pathfinder() {
     const startNode = Grid[START_NODE_ROW][START_NODE_COL];
     const endNode = Grid[END_NODE_ROW][END_NODE_COL];
     let Path = Astar(startNode, endNode);
+    startNode.isWall = false;
+    endNode.isWall = false;
     setPath(Path.path);
     setVisitedNodes(Path.visitedNodes);
   };
@@ -62,6 +64,10 @@ function Pathfinder() {
     this.f = 0;
     this.h = 0;
     this.neighbours = [];
+    this.isWall = false;
+    if (Math.random(1) < 0.2) {
+      this.isWall = true;
+    }
     this.previous = undefined;
     this.addneighbours = function (Grid) {
       let i = this.x;
@@ -80,12 +86,13 @@ function Pathfinder() {
         return (
           <div key={rowIndex} className="rowWrapper">
             {row.map((col, colIndex) => {
-              const { isStart, isEnd } = col;
+              const { isStart, isEnd, isWall } = col;
               return (
                 <Node
                   key={colIndex}
                   isStart={isStart}
                   isEnd={isEnd}
+                  isWall={isWall}
                   row={rowIndex}
                   col={colIndex}
                 />
@@ -124,7 +131,7 @@ function Pathfinder() {
 
   return (
     <div className="wrapper">
-      <h1>Pathfinder</h1>
+      <h1>Path Finder</h1>
       <button onClick={visualizePath}>Visualize Path</button>
       {gridwithNode}
     </div>
