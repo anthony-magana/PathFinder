@@ -156,7 +156,7 @@ function Pathfinder() {
 
   return (
     <div className="wrapper">
-      <h1>Path Finder</h1>
+      <h1>A* Path Finding Visualization</h1>
       <button className="visualize-btn" onClick={visualizePath}>
         Visualize Path
       </button>
