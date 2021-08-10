@@ -22,6 +22,7 @@ Single Page Web app to showcase the visualization of path finding algorithms.
 ## 🎈 Features
 
 - Button to Visualize the path of the algorithm
+- Randomized walls
 - Button to clear grid
 - Button to re-initialize grid
 - Customizable grid size (coming soon)
