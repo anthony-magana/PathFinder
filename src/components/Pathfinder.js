@@ -18,6 +18,7 @@ function Pathfinder() {
 
   useEffect(() => {
     initializeGrid();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // creates grid
@@ -34,6 +35,7 @@ function Pathfinder() {
     let Path = Astar(startNode, endNode);
     startNode.isWall = false;
     endNode.isWall = false;
+
     setPath(Path.path);
     setVisitedNodes(Path.visitedNodes);
   };
@@ -65,6 +67,7 @@ function Pathfinder() {
     this.h = 0;
     this.neighbours = [];
     this.isWall = false;
+
     if (Math.random(1) < 0.2) {
       this.isWall = true;
     }
@@ -129,10 +132,40 @@ function Pathfinder() {
     }
   };
 
+  const clearGrid = () => {
+    for (let i = 0; i < visitedNodes.length; i++) {
+      setTimeout(() => {
+        const node = visitedNodes[i];
+        document.getElementById(`node-${node.x}-${node.y}`).className =
+          "node node-reset";
+      }, 10 * i);
+    }
+
+    setPath([]);
+    setVisitedNodes([]);
+  };
+
+  const reInitialize = () => {
+    document.getElementById(
+      `node-${START_NODE_ROW}-${START_NODE_COL}`
+    ).className = "node node-start";
+    document.getElementById(`node-${END_NODE_ROW}-${END_NODE_COL}`).className =
+      "node node-end";
+    initializeGrid();
+  };
+
   return (
     <div className="wrapper">
       <h1>Path Finder</h1>
-      <button onClick={visualizePath}>Visualize Path</button>
+      <button className="visualize-btn" onClick={visualizePath}>
+        Visualize Path
+      </button>
+      <button className="clear-grid-btn" onClick={clearGrid}>
+        Clear grid
+      </button>
+      <button className="initialize-grid-btn" onClick={reInitialize}>
+        Re-Initialize Grid
+      </button>
       {gridwithNode}
     </div>
   );

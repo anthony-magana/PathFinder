@@ -6,3 +6,15 @@
 .rowWrapper {
   display: flex;
 }
+
+.visualize-btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.clear-grid-btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}

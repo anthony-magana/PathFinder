@@ -6,12 +6,17 @@
 
 .node-start {
   background-color: green;
+  z-index: 100;
 }
 
 .node-end {
   background-color: crimson;
+  z-index: 100;
 }
 
+.node-reset {
+  background-color: white;
+}
 .node-visited {
   animation-name: visitedAnimation;
   animation-duration: 1.5s;
@@ -44,6 +49,7 @@
     background-color: #90caf9;
   }
 }
+
 .node-wall {
   background-color: rgb(0, 0, 0);
 }
