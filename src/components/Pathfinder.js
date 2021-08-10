@@ -133,16 +133,12 @@ function Pathfinder() {
   };
 
   const clearGrid = () => {
-    let ready = false;
     for (let i = 0; i < visitedNodes.length; i++) {
       setTimeout(() => {
         const node = visitedNodes[i];
         document.getElementById(`node-${node.x}-${node.y}`).className =
           "node node-reset";
       }, 10 * i);
-      if (i === visitedNodes.length - 1) {
-        ready = true;
-      }
     }
     setPath([]);
     setVisitedNodes([]);
