@@ -7,14 +7,50 @@
   display: flex;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 80%;
+}
+
+.astar-title {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
 .visualize-btn {
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-bottom: 20px;
+  background: darkslateblue;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
 }
 
 .clear-grid-btn {
   margin-top: 10px;
-  margin-right: 10px;
+  margin-right: 20px;
   margin-bottom: 20px;
+  background: darkslateblue;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.initialize-grid-btn {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: darkslateblue;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
 }

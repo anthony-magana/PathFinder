@@ -159,16 +159,18 @@ function Pathfinder() {
 
   return (
     <div className="wrapper">
-      <h1>A* Path Finding Visualization</h1>
-      <button className="visualize-btn" onClick={visualizePath}>
-        Visualize Path
-      </button>
-      <button className="clear-grid-btn" onClick={clearGrid}>
-        Clear grid
-      </button>
-      <button className="initialize-grid-btn" onClick={reInitialize}>
-        Re-Initialize Grid
-      </button>
+      <div className="container">
+        <h1 className="astar-title">A* Visualization</h1>
+        <button className="visualize-btn" onClick={visualizePath}>
+          Visualize Path
+        </button>
+        <button className="clear-grid-btn" onClick={clearGrid}>
+          Clear grid
+        </button>
+        <button className="initialize-grid-btn" onClick={reInitialize}>
+          Re-Initialize Grid
+        </button>
+      </div>
       {gridwithNode}
     </div>
   );
