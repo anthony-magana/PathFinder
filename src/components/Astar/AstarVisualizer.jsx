@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Node from "./Node";
-import Astar from "./Astar/Astar";
-import "./Pathfinder.css";
+import Astar from "./Astar";
+import Grid from "../Grid";
+import "./AstarVisualizer.css";
 
 const cols = 25;
 const rows = 10;
@@ -11,7 +11,7 @@ const START_NODE_COL = 0;
 const END_NODE_ROW = rows - 1;
 const END_NODE_COL = cols - 1;
 
-function Pathfinder() {
+function AstarVisualizer() {
   const [grid, setGrid] = useState([]);
   const [path, setPath] = useState([]);
   const [visitedNodes, setVisitedNodes] = useState([]);
@@ -21,17 +21,17 @@ function Pathfinder() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // creates grid
+  // creates Nodes for grid
   const initializeGrid = () => {
-    const Grid = new Array(rows);
+    const Nodes = new Array(rows);
     for (let i = 0; i < rows; i++) {
-      Grid[i] = new Array(cols);
+      Nodes[i] = new Array(cols);
     }
-    createSpot(Grid);
-    setGrid(Grid);
-    addNeighbours(Grid);
-    const startNode = Grid[START_NODE_ROW][START_NODE_COL];
-    const endNode = Grid[END_NODE_ROW][END_NODE_COL];
+    createSpot(Nodes);
+    setGrid(Nodes);
+    addNeighbours(Nodes);
+    const startNode = Nodes[START_NODE_ROW][START_NODE_COL];
+    const endNode = Nodes[END_NODE_ROW][END_NODE_COL];
     let Path = Astar(startNode, endNode);
     startNode.isWall = false;
     endNode.isWall = false;
@@ -39,19 +39,19 @@ function Pathfinder() {
     setPath(Path.path);
     setVisitedNodes(Path.visitedNodes);
   };
-  const createSpot = (Grid) => {
+  const createSpot = (Nodes) => {
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
-        Grid[i][j] = new Spot(i, j);
+        Nodes[i][j] = new Spot(i, j);
       }
     }
   };
 
   // Add neighbours
-  const addNeighbours = (Grid) => {
+  const addNeighbours = (Nodes) => {
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < cols; j++) {
-        Grid[i][j].addneighbours(Grid);
+        Nodes[i][j].addneighbours(Nodes);
       }
     }
   };
@@ -72,40 +72,15 @@ function Pathfinder() {
       this.isWall = true;
     }
     this.previous = undefined;
-    this.addneighbours = function (Grid) {
+    this.addneighbours = function (Nodes) {
       let i = this.x;
       let j = this.y;
-      if (i > 0) this.neighbours.push(Grid[i - 1][j]);
-      if (i < rows - 1) this.neighbours.push(Grid[i + 1][j]);
-      if (j > 0) this.neighbours.push(Grid[i][j - 1]);
-      if (j < cols - 1) this.neighbours.push(Grid[i][j + 1]);
+      if (i > 0) this.neighbours.push(Nodes[i - 1][j]);
+      if (i < rows - 1) this.neighbours.push(Nodes[i + 1][j]);
+      if (j > 0) this.neighbours.push(Nodes[i][j - 1]);
+      if (j < cols - 1) this.neighbours.push(Nodes[i][j + 1]);
     };
   }
-
-  // Grid with node
-  const gridwithNode = (
-    <div>
-      {grid.map((row, rowIndex) => {
-        return (
-          <div key={rowIndex} className="rowWrapper">
-            {row.map((col, colIndex) => {
-              const { isStart, isEnd, isWall } = col;
-              return (
-                <Node
-                  key={colIndex}
-                  isStart={isStart}
-                  isEnd={isEnd}
-                  isWall={isWall}
-                  row={rowIndex}
-                  col={colIndex}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
-    </div>
-  );
 
   const visualizeShortestPath = (shortestPathNodes) => {
     for (let i = 0; i < shortestPathNodes.length; i++) {
@@ -171,9 +146,10 @@ function Pathfinder() {
           Re-Initialize Grid
         </button>
       </div>
-      {gridwithNode}
+      {/* gridwithNode */}
+      <Grid grid={grid} />
     </div>
   );
 }
 
-export default Pathfinder;
+export default AstarVisualizer;

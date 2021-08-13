@@ -3,10 +3,6 @@
   margin: auto;
 }
 
-.rowWrapper {
-  display: flex;
-}
-
 .container {
   display: flex;
   justify-content: center;

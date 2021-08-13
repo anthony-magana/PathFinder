@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 80%;
+  margin: auto;
+}
+
+.dijkstra-title {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  flex: 1;
+}

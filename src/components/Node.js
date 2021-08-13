@@ -1,7 +1,7 @@
 import React from "react";
 import "./Node.css";
 
-function Node({ isStart, isEnd, isWall, isReset, row, col }) {
+function Node({ isStart, isEnd, isWall, row, col }) {
   const classes = isStart
     ? "node-start"
     : isWall
