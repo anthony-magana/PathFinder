@@ -3,23 +3,24 @@ import Astar from "./Astar";
 import Grid from "../Grid";
 import "./AstarVisualizer.css";
 
-const cols = 25;
-const rows = 10;
-
-const START_NODE_ROW = 0;
-const START_NODE_COL = 0;
-const END_NODE_ROW = rows - 1;
-const END_NODE_COL = cols - 1;
-
 function AstarVisualizer() {
   const [grid, setGrid] = useState([]);
   const [path, setPath] = useState([]);
   const [visitedNodes, setVisitedNodes] = useState([]);
+  const [gridRows, setGridRows] = useState(10);
+  const [gridCols, setGridCols] = useState(25);
+  const cols = gridCols;
+  const rows = gridRows;
+
+  const START_NODE_ROW = 0;
+  const START_NODE_COL = 0;
+  const END_NODE_ROW = rows - 1;
+  const END_NODE_COL = cols - 1;
 
   useEffect(() => {
     initializeGrid();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [gridRows, gridCols]);
 
   // creates Nodes for grid
   const initializeGrid = () => {
@@ -132,6 +133,13 @@ function AstarVisualizer() {
     initializeGrid();
   };
 
+  const updateRows = (e) => {
+    setGridRows(e.target.value);
+  };
+  const updateCols = (e) => {
+    setGridCols(e.target.value);
+  };
+
   return (
     <div className="wrapper">
       <div className="container">
@@ -145,6 +153,32 @@ function AstarVisualizer() {
         <button className="initialize-grid-btn" onClick={reInitialize}>
           Re-Initialize Grid
         </button>
+      </div>
+      <div className="custom-grid-wrapper">
+        <div className="custom-rows">
+          <p className="custom-rows-title">Rows</p>
+          <input
+            type="range"
+            min="5"
+            max="20"
+            value={gridRows}
+            onChange={updateRows}
+            step="1"
+          />
+          <p>{gridRows}</p>
+        </div>
+        <div className="custom-cols">
+          <p className="custom-cols-title">Columns</p>
+          <input
+            type="range"
+            min="5"
+            max="45"
+            value={gridCols}
+            onChange={updateCols}
+            step="5"
+          />
+          <p>{gridCols}</p>
+        </div>
       </div>
       {/* gridwithNode */}
       <Grid grid={grid} />
