@@ -25,7 +25,7 @@ Single Page Web app to showcase the visualization of path finding algorithms.
 - Randomized walls
 - Button to clear grid
 - Button to re-initialize grid
-- Customizable grid size (coming soon)
+- Customizable grid size
 
 ## 🔧 Installation
 
