@@ -80,3 +80,9 @@
     background-color: #81c784;
   }
 }
+@media screen and (max-width: 540px) {
+  .node {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -30,7 +30,7 @@
 .Nav_item_wrapper {
   list-style: none;
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 0;
 }
 
@@ -45,4 +45,22 @@
 
 .selected {
   color: rgb(190, 125, 255);
+}
+
+@media screen and (max-width: 490px) {
+  .Nav_brand {
+    font-size: 1.2rem;
+    margin-left: 5%;
+  }
+}
+@media screen and (max-width: 430px) {
+  .Nav_link {
+    font-size: 16px;
+  }
+  .Nav_brand {
+    font-size: 1rem;
+  }
+  .Nav_item {
+    margin-right: 0px;
+  }
 }

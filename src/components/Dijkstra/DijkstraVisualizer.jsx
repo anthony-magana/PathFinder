@@ -31,9 +31,7 @@ function DijkstraPathFinder() {
   return (
     <div className="wrapper">
       <div className="container">
-        <h1 className="dijkstra-title">
-          Dijkstra Visualization (In progress){" "}
-        </h1>
+        <h1 className="dijkstra-title">Dijkstra Visualization (coming soon)</h1>
       </div>
 
       {/* gridwithnode */}

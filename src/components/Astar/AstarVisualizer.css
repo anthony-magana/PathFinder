@@ -10,44 +10,41 @@
   flex-wrap: wrap;
   align-items: center;
   max-width: 80%;
+  margin-top: 10px;
+  margin-bottom: 25px;
 }
 
 .astar-title {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   flex: 1;
+  margin-right: 10px;
 }
 
 .visualize-btn {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   background: darkslateblue;
   border: none;
   padding: 10px 20px;
   color: white;
   cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .clear-grid-btn {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   background: darkslateblue;
   border: none;
   padding: 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
   color: white;
   cursor: pointer;
 }
 
 .initialize-grid-btn {
-  margin-top: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px;
   background: darkslateblue;
   border: none;
   padding: 10px 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
   color: white;
   cursor: pointer;
 }
@@ -55,21 +52,20 @@
 .custom-grid-wrapper {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   max-width: 80%;
+  margin-bottom: 25px;
 }
 
 .custom-rows {
   margin-top: 10px;
   margin-right: 40px;
-  margin-bottom: 20px;
 }
 
 .custom-cols {
   margin-top: 10px;
   margin-right: 20px;
-  margin-bottom: 20px;
 }
 
 .custom-rows-title {
@@ -81,4 +77,57 @@
   font-weight: 500;
   padding-bottom: 10px;
   font-size: 1rem;
+}
+input {
+  width: 200px;
+}
+
+@media screen and (max-width: 1006px) {
+  .astar-title {
+    font-size: 1.6rem;
+    padding-bottom: 10px;
+  }
+  .visualize-btn {
+    padding: 10px 10px;
+  }
+  .clear-grid-btn {
+    padding: 10px 10px;
+  }
+  .initialize-grid-btn {
+    padding: 10px 10px;
+  }
+  .custom-grid-wrapper {
+    max-width: 100%;
+  }
+  .custom-rows {
+    margin-right: 25px;
+  }
+  input {
+    width: 130px;
+  }
+}
+@media screen and (max-width: 782px) {
+  .astar-title {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .astar-title {
+    font-size: 1.2rem;
+  }
+  input {
+    width: 85px;
+  }
+  .custom-rows-title {
+    font-size: 14px;
+  }
+  .custom-cols-title {
+    font-size: 14px;
+  }
+  .custom-rows {
+    font-size: 14px;
+  }
+  .custom-cols {
+    font-size: 14px;
+  }
 }

@@ -148,7 +148,7 @@ function AstarVisualizer() {
           Visualize Path
         </button>
         <button className="clear-grid-btn" onClick={clearGrid}>
-          Clear grid
+          Clear Grid
         </button>
         <button className="initialize-grid-btn" onClick={reInitialize}>
           Re-Initialize Grid
