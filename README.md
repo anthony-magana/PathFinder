@@ -21,6 +21,7 @@ Single Page Web app to showcase the visualization of path finding algorithms.
 
 ## 🎈 Features
 
+- Visualization support for A\* and Dijkstra's algorithm
 - Button to Visualize the path of the algorithm
 - Randomized walls
 - Button to clear grid
