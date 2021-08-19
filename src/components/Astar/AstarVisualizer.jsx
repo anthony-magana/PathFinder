@@ -143,7 +143,7 @@ function AstarVisualizer() {
   return (
     <div className="wrapper">
       <div className="container">
-        <h1 className="astar-title">A* Visualization</h1>
+        <h1 className="title">A* Visualization</h1>
         <button className="visualize-btn" onClick={visualizePath}>
           Visualize Path
         </button>
