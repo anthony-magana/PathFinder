@@ -50,14 +50,14 @@ function DijkstraPathFinder() {
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
           animateShortestPath(nodesInShortestPathOrder);
-        }, 15 * i);
+        }, 18 * i);
         return;
       }
       setTimeout(() => {
         const node = visitedNodesInOrder[i];
         document.getElementById(`node-${node.row}-${node.col}`).className =
           "node node-visited";
-      }, 15 * i);
+      }, 18 * i);
     }
   }
   function animateShortestPath(nodesInShortestPathOrder) {
@@ -124,11 +124,14 @@ function DijkstraPathFinder() {
     <div className="wrapper">
       <div className="container">
         <h1 className="dijkstra-title">Dijkstra Visualization</h1>
-        <button className="visualize-dijkstra-btn" onClick={visualizeDijkstra}>
+        <button className="visualize-btn" onClick={visualizeDijkstra}>
           Visualize Path
         </button>
-        <button className="clear-btn" onClick={clear}>
-          clear
+        <button className="clear-grid-btn" onClick={clear}>
+          Clear Grid
+        </button>
+        <button className="initialize-grid-btn" onClick={reInitialize}>
+          Re-Initialize Grid
         </button>
       </div>
 
