@@ -8,16 +8,16 @@ const Grid = ({ grid }) => {
       {grid.map((row, rowIndex) => {
         return (
           <div key={rowIndex} className="rowWrapper">
-            {row.map((col, colIndex) => {
-              const { isStart, isEnd, isWall } = col;
+            {row.map((node, Index) => {
+              const { isStart, isEnd, isWall } = node;
               return (
                 <Node
-                  key={colIndex}
+                  key={Index}
                   isStart={isStart}
                   isEnd={isEnd}
                   isWall={isWall}
                   row={rowIndex}
-                  col={colIndex}
+                  col={Index}
                 />
               );
             })}
