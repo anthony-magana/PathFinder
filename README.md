@@ -12,7 +12,7 @@
 
 ## 🏁 [WEBSITE](https://pathfindervisual.netlify.app/)
 
-Single Page Web app to showcase the visualization of path finding algorithms.
+Single Page Web app that visually displays path finding algorithms to find a target node from a start node.
 
 ## ⛏️ Built Using
 
