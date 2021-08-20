@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Grid from "../Grid";
+import Grid from "../Grid/Grid";
 import { dijkstra, getNodesInShortestPathOrder } from "./Dijkstra";
 import "./DijkstraVisualizer.css";
 
@@ -9,11 +9,12 @@ function DijkstraPathFinder() {
   const [visitedNodes, setVisitedNodes] = useState([]);
   const [gridRows, setGridRows] = useState(10);
   const [gridCols, setGridCols] = useState(25);
+
   const cols = gridCols;
   const rows = gridRows;
 
-  const START_NODE_ROW = 0;
-  const START_NODE_COL = 0;
+  const START_NODE_ROW = 2;
+  const START_NODE_COL = 2;
   const END_NODE_ROW = rows - 1;
   const END_NODE_COL = cols - 1;
 
@@ -106,11 +107,19 @@ function DijkstraPathFinder() {
           "node node-reset";
       }, 10 * i);
     }
-    // setPath([]);
-    // setVisitedNodes([]);
-    setTimeout(() => {
-      reInitialize();
-    }, 2200);
+    if (rows < 16 && cols < 20) {
+      setPath([]);
+      setVisitedNodes([]);
+      setTimeout(() => {
+        reInitialize();
+      }, 3000);
+    } else {
+      setPath([]);
+      setVisitedNodes([]);
+      setTimeout(() => {
+        reInitialize();
+      }, 5000);
+    }
   }
   const reInitialize = () => {
     document.getElementById(
@@ -131,7 +140,7 @@ function DijkstraPathFinder() {
   return (
     <div className="wrapper">
       <div className="container">
-        <h1 className="title">Dijkstra Visualization</h1>
+        <h1 className="title">Dijkstra's Visualization</h1>
         <button className="visualize-btn" onClick={visualizeDijkstra}>
           Visualize Path
         </button>

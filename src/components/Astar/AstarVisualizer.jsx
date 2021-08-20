@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Astar from "./Astar";
-import Grid from "../Grid";
+import Grid from "../Grid/Grid";
 import "./AstarVisualizer.css";
 
 function AstarVisualizer() {
@@ -12,8 +12,8 @@ function AstarVisualizer() {
   const cols = gridCols;
   const rows = gridRows;
 
-  const START_NODE_ROW = 0;
-  const START_NODE_COL = 0;
+  const START_NODE_ROW = 2;
+  const START_NODE_COL = 2;
   const END_NODE_ROW = rows - 1;
   const END_NODE_COL = cols - 1;
 
@@ -114,14 +114,14 @@ function AstarVisualizer() {
         const node = visitedNodes[i];
         document.getElementById(`node-${node.x}-${node.y}`).className =
           "node node-reset";
-      }, 10 * i);
+      }, 5 * i);
     }
     setPath([]);
     setVisitedNodes([]);
 
     setTimeout(() => {
       reInitialize();
-    }, 2000);
+    }, 3000);
   };
 
   const reInitialize = () => {

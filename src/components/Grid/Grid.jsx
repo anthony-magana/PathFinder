@@ -1,5 +1,5 @@
 import React from "react";
-import Node from "./Node";
+import Node from "../Node/Node";
 import "./Grid.css";
 
 const Grid = ({ grid }) => {
